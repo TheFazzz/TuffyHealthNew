@@ -11,17 +11,24 @@ namespace TuffyHealthNew.Data
         {
         }
         
+<<<<<<< Updated upstream
         public DbSet<ApplicationUser>? applicationUsers { get; set; }
         //public DbSet<Appointments>? Appointments { get; set; }
         //public DbSet<Treatments>? Treatments { get; set; }
         //public DbSet<PatientLogs>? PatientLogs { get; set; }
+=======
+        public DbSet<ApplicationUser>? ApplicationUsers { get; set; }
+        public DbSet<Appointments>? Appointments { get; set; }
+        public DbSet<Treatments>? Treatments { get; set; }
+        public DbSet<PatientLogs>? PatientLogs { get; set; }
+>>>>>>> Stashed changes
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {            
             base.OnModelCreating(modelBuilder);
-            //modelBuilder.Entity<Appointments>().ToTable("Appointments");
-            //modelBuilder.Entity<Treatments>().ToTable("Treatments");
-            //modelBuilder.Entity<PatientLogs>().ToTable("PatientLogs");
+            modelBuilder.Entity<Appointments>().ToTable("Appointments");
+            modelBuilder.Entity<Treatments>().ToTable("Treatments");
+            modelBuilder.Entity<PatientLogs>().ToTable("PatientLogs");
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

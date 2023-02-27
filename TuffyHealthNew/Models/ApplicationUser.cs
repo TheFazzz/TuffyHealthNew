@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Identity;
 
 namespace TuffyHealthNew.Models
 {
     public class ApplicationUser : IdentityUser
     {
+
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public DateTime DOB { get; set; }
