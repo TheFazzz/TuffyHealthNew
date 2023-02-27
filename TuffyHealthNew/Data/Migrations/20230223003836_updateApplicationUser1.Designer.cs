@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TuffyHealthNew.Data;
 
@@ -11,9 +12,10 @@ using TuffyHealthNew.Data;
 namespace TuffyHealthNew.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230223003836_updateApplicationUser1")]
+    partial class updateApplicationUser1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -248,83 +250,6 @@ namespace TuffyHealthNew.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("TuffyHealthNew.Models.Appointments", b =>
-                {
-                    b.Property<int>("AppointmentID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AppointmentID"), 1L, 1);
-
-                    b.Property<string>("ApplicationUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("Appointment_date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Time")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("AppointmentID");
-
-                    b.HasIndex("ApplicationUserId");
-
-                    b.ToTable("Appointments", (string)null);
-                });
-
-            modelBuilder.Entity("TuffyHealthNew.Models.PatientLogs", b =>
-                {
-                    b.Property<int>("TreatmentID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TreatmentID"), 1L, 1);
-
-                    b.Property<string>("ApplicationUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Dosage")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Patient_log_date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Result")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TreatmentsTreatmentID")
-                        .HasColumnType("int");
-
-                    b.HasKey("TreatmentID");
-
-                    b.HasIndex("ApplicationUserId");
-
-                    b.HasIndex("TreatmentsTreatmentID");
-
-                    b.ToTable("PatientLogs", (string)null);
-                });
-
-            modelBuilder.Entity("TuffyHealthNew.Models.Treatments", b =>
-                {
-                    b.Property<int>("TreatmentID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TreatmentID"), 1L, 1);
-
-                    b.Property<string>("TreatmentName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TreatmentType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("TreatmentID");
-
-                    b.ToTable("Treatments", (string)null);
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -374,36 +299,6 @@ namespace TuffyHealthNew.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("TuffyHealthNew.Models.Appointments", b =>
-                {
-                    b.HasOne("TuffyHealthNew.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ApplicationUser");
-                });
-
-            modelBuilder.Entity("TuffyHealthNew.Models.PatientLogs", b =>
-                {
-                    b.HasOne("TuffyHealthNew.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("TuffyHealthNew.Models.Treatments", "Treatments")
-                        .WithMany()
-                        .HasForeignKey("TreatmentsTreatmentID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ApplicationUser");
-
-                    b.Navigation("Treatments");
                 });
 #pragma warning restore 612, 618
         }
