@@ -84,6 +84,10 @@ namespace TuffyHealthNew.Areas.Identity.Pages.Account
             public DateTime DOB { get; set; }
 
             [Required]
+            [Display(Name = "Gender")]
+            public string Gender { get; set; }
+
+            [Required]
             [Display(Name = "Address")]
             public string Address { get; set; }
 
@@ -141,10 +145,19 @@ namespace TuffyHealthNew.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
-
+                user.FirstName = Input.FirstName;
+                user.LastName = Input.LastName;
+                user.DOB = Input.DOB; 
+                user.Gender = Input.Gender;
+                user.Address = Input.Address;
+                user.City= Input.City;
+                user.State= Input.State;
+                user.State = Input.State;
+                user.PostalCode = Input.PostalCode;
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
+
 
                 if (result.Succeeded)
                 {
