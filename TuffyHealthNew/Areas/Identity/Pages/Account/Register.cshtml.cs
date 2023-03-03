@@ -81,6 +81,7 @@ namespace TuffyHealthNew.Areas.Identity.Pages.Account
 
             [Required]
             [Display(Name = "Date of Birth")]
+            [DataType(DataType.Date)]
             public DateTime DOB { get; set; }
 
             [Required]
@@ -144,20 +145,21 @@ namespace TuffyHealthNew.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
+
                 var user = CreateUser();
                 user.FirstName = Input.FirstName;
                 user.LastName = Input.LastName;
-                user.DOB = Input.DOB; 
+                user.DOB = Input.DOB;
                 user.Gender = Input.Gender;
                 user.Address = Input.Address;
-                user.City= Input.City;
-                user.State= Input.State;
-                user.State = Input.State;
+                user.City   = Input.City;
+                user.State  = Input.State;
                 user.PostalCode = Input.PostalCode;
+
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
-
+                
 
                 if (result.Succeeded)
                 {

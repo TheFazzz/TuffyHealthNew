@@ -15,6 +15,7 @@ namespace TuffyHealthNew.Controllers
 
         public IActionResult Index()
         {
+            
             return View();
         }
 
