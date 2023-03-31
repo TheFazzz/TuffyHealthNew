@@ -12,7 +12,7 @@ namespace TuffyHealthNew.Controllers
             _userManager = userManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             var userid = _userManager.GetUserId(HttpContext.User);
             if (userid == null)
@@ -22,6 +22,7 @@ namespace TuffyHealthNew.Controllers
             else
             {
                 ApplicationUser user = _userManager.FindByIdAsync(userid).Result;
+                
                 return View(user);
             }
         }

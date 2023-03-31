@@ -52,6 +52,22 @@ namespace TuffyHealthNew.Areas.Identity.Pages.Account.Manage
         /// </summary>
         public class InputModel
         {
+            [Display(Name = "First Name")]
+            public string FirstName { get; set; }
+            [Display(Name = "Last Name")]
+            public string LastName { get; set; }
+            [Display(Name = "DOB")]
+            public DateTime DOB { get; set; }
+            [Display(Name = "Gender")]
+            public string Gender { get; set; }
+            [Display(Name = "Address")]
+            public string Address { get; set; }
+            [Display(Name = "City")]
+            public string City { get; set; }
+            [Display(Name = "State")]
+            public string State { get; set; }
+            [Display(Name = "PostalCode")]
+            public string PostalCode { get; set; }
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -66,13 +82,31 @@ namespace TuffyHealthNew.Areas.Identity.Pages.Account.Manage
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
             
-            Username = userName;
-            
-
+            var firstName = user.FirstName;
+            var lastName = user.LastName;
+            var DateOfBirth = user.DOB;
+            var gender = user.Gender;
+            var address = user.Address;
+            var city = user.City;
+            var state = user.State;
+            var postalCode = user.PostalCode;  
+            //Username = userName;
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,  
+                FirstName = firstName,
+                LastName = lastName,
+                DOB= DateOfBirth,
+                Gender = gender,
+                Address = address,
+                City = city,
+                State = state,
+                PostalCode = postalCode,
+
+                
             };
+
+            
         }
 
         public async Task<IActionResult> OnGetAsync()
@@ -111,6 +145,55 @@ namespace TuffyHealthNew.Areas.Identity.Pages.Account.Manage
                     return RedirectToPage();
                 }
             }
+            var firstName = user.FirstName;
+            var lastName = user.LastName;
+            var dob = user.DOB;
+            var gender = user.Gender;
+            var address = user.Address;
+            var city = user.City;   
+            var state = user.State;
+            var zipcode = user.PostalCode;
+            if (Input.FirstName != firstName)
+            {
+                user.FirstName = Input.FirstName;
+                await _userManager.UpdateAsync(user);
+            }
+            if (Input.LastName != lastName)
+            {
+                user.LastName = Input.LastName;
+                await _userManager.UpdateAsync(user);
+            }
+            if (Input.DOB != dob)
+            {
+                user.DOB = Input.DOB;
+                await _userManager.UpdateAsync(user);
+            }
+            if (Input.Gender != gender)
+            {
+                user.Gender = Input.Gender;
+                await _userManager.UpdateAsync(user);
+            }
+            if (Input.Address != address)
+            {
+                user.Address = Input.Address;
+                await _userManager.UpdateAsync(user);
+            }
+            if (Input.City != city)
+            {
+                user.City = Input.City;
+                await _userManager.UpdateAsync(user);
+            }
+            if (Input.State != state)
+            {
+                user.State = Input.State;
+                await _userManager.UpdateAsync(user);
+            }
+            if (Input.PostalCode != zipcode)
+            {
+                user.PostalCode = Input.PostalCode;
+                await _userManager.UpdateAsync(user);
+            }
+            
 
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
