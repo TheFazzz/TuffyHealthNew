@@ -145,7 +145,6 @@ namespace TuffyHealthNew.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-
                 var user = CreateUser();
                 user.FirstName = Input.FirstName;
                 user.LastName = Input.LastName;
@@ -156,6 +155,7 @@ namespace TuffyHealthNew.Areas.Identity.Pages.Account
                 user.State  = Input.State;
                 user.PostalCode = Input.PostalCode;
 
+                await _userManager.AddToRoleAsync(user, "Patient");
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
