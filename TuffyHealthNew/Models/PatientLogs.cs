@@ -10,6 +10,7 @@ namespace TuffyHealthNew.Models
     {
         [Key]
         public int TreatmentID { get; set; }
+        [DataType(DataType.Date)]
         public DateTime Patient_log_date { get; set; }
         public string? Dosage { get; set; }
         public string? Result { get; set; }
