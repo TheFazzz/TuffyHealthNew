@@ -7,6 +7,7 @@ namespace TuffyHealthNew.Models
         //public string Id { get; set; }
         [Key]
         public int AppointmentID { get; set; }
+        [DataType(DataType.Date)]
         public DateTime Appointment_date { get; set; }
         public string? Time { get; set; }
 
