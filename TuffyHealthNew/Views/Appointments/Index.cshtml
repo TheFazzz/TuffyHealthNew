@@ -7,26 +7,33 @@
 
 <h1>My Appointments</h1>
 
+<img class="appointmentImg" src="img/appointment.png" alt="appointment" width="500" align="right">
 
-<table class="table">
+<table class="appointmentTable" border="3" height="50%" width="50%" align=center cellpadding="10">
     <thead>
-        <tr>
+        <tr style="background-color:#C0C0C0;color:#000000;">
+            <th>
+                @Html.DisplayNameFor(model => model.Doctor)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Appointment_date)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Time)
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        
+        @foreach (var item in Model) {
         <tr>
-            <td>
+            <td style="background-color:#ffffff;">
+                 @Html.DisplayFor(modelItem => item.Doctor)
+            </td>
+                <td style="background-color:#ffffff">
                 @Html.DisplayFor(modelItem => item.Appointment_date)
             </td>
-            <td>
+                <td style="background-color:#ffffff">
                 @Html.DisplayFor(modelItem => item.Time)
             </td>
            
@@ -34,3 +41,4 @@
 }
     </tbody>
 </table>
+

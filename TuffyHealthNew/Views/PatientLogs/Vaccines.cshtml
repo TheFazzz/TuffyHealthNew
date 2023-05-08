@@ -7,9 +7,12 @@
 
 <h1>Vaccinations</h1>
 
-<table class="table">
+<img alt="vacination" src="/img/vaccines.png" width="475" align="right">
+
+
+<table class="vaccines" border="3" height="50%" width="50%" align=center cellpadding="10" background-color="white">
     <thead>
-        <tr>
+        <tr style="background-color:#C0C0C0;color:#000000;">
             <th>
                 @Html.DisplayNameFor(model => model.Patient_log_date)
             </th>
@@ -19,20 +22,20 @@
             <th>
                 @Html.DisplayNameFor(model => model.Dosage)
             </th>
-            <th></th>
+            
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+                <td style="background-color:#ffffff;">
                     @Html.DisplayFor(modelItem => item.Patient_log_date)
                 </td>
-                <td>
+                <td style="background-color:#ffffff;">
                     @Html.DisplayFor(modelItem => item.Treatments.TreatmentName)
                 </td>
-                <td>
+                <td style="background-color:#ffffff;">
                     @Html.DisplayFor(modelItem => item.Dosage)
                 </td>
 

@@ -5,7 +5,7 @@
 
 
 $(document).ready(function () {
-    $("#mehdi").fade(); 
+    $("#mehdi").fade();
 });
 
 let slideIndex = 0;
