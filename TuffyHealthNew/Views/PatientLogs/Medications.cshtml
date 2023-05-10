@@ -4,19 +4,24 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+table, th, td {
+  border: 3px solid black;
+}
+</style>
 
 <h1>Medications</h1>
 
 <img alt="medications" src="/img/medication.png" width="450" align="right">
 
-<table class="medications" border="3" height="50%" width="50%" align=center cellpadding="10">
+<table class="medications" height="50%" width="50%" align=center cellpadding="10">
     <thead>
         <tr style="background-color:#C0C0C0;color:#000000;">
             <th>
-                @Html.DisplayNameFor(model => model.Patient_log_date)
+                <p>Date</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Treatments.TreatmentName)
+                <p>Medication</p>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Dosage)

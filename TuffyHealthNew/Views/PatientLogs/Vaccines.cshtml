@@ -5,19 +5,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<style>
+    table, th, td {
+        border: 3px solid black;
+    }
+</style>
+
 <h1>Vaccinations</h1>
 
 <img alt="vacination" src="/img/vaccines.png" width="475" align="right">
 
 
-<table class="vaccines" border="3" height="50%" width="50%" align=center cellpadding="10" background-color="white">
+<table class="vaccines" height="50%" width="50%" align=center cellpadding="10" background-color="white">
     <thead>
         <tr style="background-color:#C0C0C0;color:#000000;">
             <th>
-                @Html.DisplayNameFor(model => model.Patient_log_date)
+                <p>Date</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Treatments.TreatmentName)
+                <p>Vaccine</p>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Dosage)

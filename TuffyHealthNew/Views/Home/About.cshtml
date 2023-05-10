@@ -1,6 +1,116 @@
-﻿@{
+﻿﻿@{
     ViewData["Title"] = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>@ViewData["Title"]</h1>
+<style>
+ .column {
+   float: right;
+   width: 50%;
+   margin-bottom: 8px;
+   padding-top: 0 8px;
+   padding-right: 0 8px;
+   padding-bottom: 0 8px;
+   padding-left: 0 8px
+   
+}
+
+    .col {
+        float: left;
+        width: 50%;
+        margin-bottom: 16px;
+        padding: 0 8px;
+       
+    }
+
+/* Display the columns below each other instead of side by side on small screens */
+
+
+/* Add some shadows to create a card effect */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Some left and right padding inside the container */
+.container {
+  padding: 0 16px;
+}
+
+/* Clear floats */
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+</style>
+
+<div id="about" class="container-fluid">
+    
+    <div class="col">
+        <h1>TuffyHealth</h1>
+        <div class="ro">
+          <br>
+            <h4>Welcome to TuffyHealth, your trusted healthcare portal! We are a team of dedicated 
+                professionals committed to providing a secure and user-friendly platform that allows
+                patients to access critical patient information quickly and efficiently.We take pride
+                in providing a seamless user experience for our customers. Our platform is intuitive
+                and user-friendly, allowing patients to access critical patient information with ease.
+                We are always looking for ways to improve our platform and welcome feedback and 
+                suggestions from our users.Thank you for choosing TuffyHealth as your healthcare provider.
+                We are committed to serving you and helping provide the best possible care to our
+                patients.</h4>
+          <br>
+         </div>
+     </div>
+
+    
+    <div class="row">
+        <h1>Meet our Doctors</h1>
+        <div class="column">
+            <div class="card">
+                <img src="/img/sai.jpg" alt="sai" style="width:100%">
+                <div class="container">
+                    <h2>Dr. Sai</h2>
+                    <p class="title">Primary Care Physician</p>
+                    <p>Started TuffyHealth in 2018 after moving from India</p>
+                    <p>DrSai@tuffyhealth.com</p>
+                    <p><button class="button">Contact</button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img src="/img/mehdi.jpg" alt="mehdi" style="width:100%">
+                <div class="container">
+                    <h2>Dr. Mehdi</h2>
+                    <p class="title">General Practitioner</p>
+                    <p>Partnered with Tuffyhealth in 2020 after leaving his teaching career</p>
+                    <p>DrMehdi@tuffyhealth.com</p>
+                    <p><button class="button">Contact</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 

@@ -4,7 +4,6 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 @model IEnumerable<TuffyHealthNew.Models.ApplicationUser>
-
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -12,34 +11,20 @@
 <div class="text-center">
     @if (SignInManager.IsSignedIn(User))
     {
-        <h1 class="display-4">Welcome Back!</h1>
+        <h1 class="display-4">Welcome Back to TuffyHealth!</h1>
     }
     else
     {
-        <h1 class="display-4">Welcome to Tuffy Health</h1>
+        <h1 class="display-4">Welcome to TuffyHealth</h1>
     }
 </div>
 
-<!-- this is the start of content -->
-
-<html>
-<head>
-    <style>
-        body {
-            background-image: url('/Home/Projectlogo.jpg');
-        }
-    </style>
-</head>
-</html>
 <body>
     <!-- this is the start of content -->
     `
     <div class="login-div">
         <div class="logo" style="text-align:center;">
-            <a>
-                <img src="https://i.ibb.co/JnYmYYy/Projectlogo.jpg" alt="Projectlogo" border="0">
-            </a>
-            <br />
+                <img src="/img/Projectlogo.jpg" alt="Projectlogo" width="460">
         </div>
     </div>
 </body>

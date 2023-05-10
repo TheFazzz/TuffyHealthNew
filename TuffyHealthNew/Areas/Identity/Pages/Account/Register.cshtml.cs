@@ -79,28 +79,24 @@ namespace TuffyHealthNew.Areas.Identity.Pages.Account
             [Display(Name = "Last Name")]
             public string LastName { get; set; }
 
-            [Required]
             [Display(Name = "Date of Birth")]
             [DataType(DataType.Date)]
             public DateTime DOB { get; set; }
 
-            [Required]
+            
             [Display(Name = "Gender")]
             public string Gender { get; set; }
 
-            [Required]
+            
             [Display(Name = "Address")]
             public string Address { get; set; }
 
-            [Required]
             [Display(Name = "City")]
             public string City { get; set; }
 
-            [Required]
             [Display(Name = "State")]
             public string State { get; set; }
 
-            [Required]
             [Display(Name = "Zipcode")]
             public string PostalCode { get; set; }
             /// <summary>
